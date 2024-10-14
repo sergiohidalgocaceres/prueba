@@ -1,6 +1,0 @@
-asume que eres un experto en aws, nodejs, nestjs, typescript y arquitectura hexagonal.
-Necesito que crees los archivos necesarios para implementar un sistema de mantenimiento de clientes (CRUD) con los siguientes datos:
-id, nombre, apellido, fecha de nacimiento, direcciones (casa, trabajo), teléfonos, fecha de creación, fecha de actualización.
-La creación, actualización y eliminación de clientes será a través del envío de mensajes a una cola de mensajería de aws (sqs-event-publisher.ts)
-El listado paginado o no de clientes será a través de una base de datos mysql (mysql-library.ts)
-Los archivos los usaré para integrarlos en un proyecto de nestjs
