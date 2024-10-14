@@ -1,0 +1,1 @@
+export const DYNAMODB_OPTIONS = Symbol('DYNAMODB_OPTIONS');

@@ -1,0 +1,34 @@
+### List
+get http://localhost:3000/policies
+
+### Get one
+get http://localhost:3000/policies/c98a80df-5cd6-4626-8e9f-07edb9737632
+
+
+### Create
+post http://localhost:3000/policies
+Content-Type: application/json
+
+{
+    "holder": "Juan Perez3",
+    "dni": "12345678",
+    "address": "123 Main St",
+    "phone": "555-555-5555",
+    "vehicleBrand": "Toyota",
+    "licensePlate": "ABC123",
+    "manufactureYear": 2010,
+    "insuredAmount": 10000,
+    "premium": 500,
+    "validityPeriod": "2023-01-01 to 2024-01-01"
+}
+
+### Update
+put http://localhost:3000/policies/c63dc667-9d92-4f6b-8a9c-27f2ed0f7544
+Content-Type: application/json
+
+{
+    "insuredAmount": 35000
+}
+
+### Delete
+delete http://localhost:3000/policies/c63dc667-9d92-4f6b-8a9c-27f2ed0f7544

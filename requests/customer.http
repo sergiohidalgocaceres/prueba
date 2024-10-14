@@ -1,0 +1,38 @@
+### List
+get http://localhost:3000/customers
+
+### Get one
+get http://localhost:3000/customers/50
+
+### List with limit and offset
+get http://localhost:3000/customers?limit=10&offset=0
+
+### Create
+post http://localhost:3000/customers
+Content-Type: application/json
+
+{
+    "firstName": "Juan",
+    "lastName": "Perez"
+}
+
+### Create
+post http://localhost:3000/customers
+Content-Type: application/json
+
+{
+    "firstName": "Sergio Iván",
+    "lastName": "Hidalgo Cáceres",
+    "birthDate": "1990-01-01"
+}
+ 
+### Update
+put http://localhost:3000/customers/1
+Content-Type: application/json
+
+{
+    "birthDate": "1980-01-01"
+}
+
+### Delete
+delete http://localhost:3000/customers/1

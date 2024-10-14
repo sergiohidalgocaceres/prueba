@@ -1,0 +1,54 @@
+services:
+  mysql-server:
+    image: mysql:8
+    container_name: mysql-server
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 12345
+    ports:
+      - '3306:3306'
+    restart: unless-stopped
+    volumes:
+      - vol-mysql-rimac:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 3s
+    networks:
+      - net-rimac
+
+  mysql-client:
+    image: phpmyadmin
+    container_name: mysql-client
+    environment:
+      PMA_HOST: mysql-server
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - '8080:80'
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost']
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 3s
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+    networks:
+      - net-rimac
+
+volumes:
+  vol-mysql-rimac:
+    driver: local
+    name: vol-mysql-rimac
+
+networks:
+  net-rimac:
+    driver: bridge
+    name: net-rimac

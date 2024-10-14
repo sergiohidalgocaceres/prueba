@@ -1,0 +1,1 @@
+export const EVENT_BRIDGE_OPTIONS = Symbol('EVENT_BRIDGE_OPTIONS');
